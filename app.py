@@ -15,10 +15,9 @@ DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "ecopackai"
 
-engine = create_engine(
-    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
+DATABASE_URL = "PASTEpostgresql://ecopackai_user:mQK8BV2rAII5uXP6rvBtj99drWurKJgP@dpg-d737l25m5p6s73e3ooq0-a.oregon-postgres.render.com/ecopackai_3wwkRL_HERE"
 
+engine = create_engine(DATABASE_URL)
 # -----------------------------
 # LOAD MODELS
 # -----------------------------

@@ -15,7 +15,9 @@ DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "ecopackai"
 
-DATABASE_URL = "PASTEpostgresql://ecopackai_user:mQK8BV2rAII5uXP6rvBtj99drWurKJgP@dpg-d737l25m5p6s73e3ooq0-a.oregon-postgres.render.com/ecopackai_3wwkRL_HERE"
+import os
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
 # -----------------------------

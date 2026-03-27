@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoPackAI Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+
+h1, h3 {
+    text-align: center;
+    color: #222;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 14px;
+}
+
+.range-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 4px;
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slider-row input[type="range"] {
+    flex: 1;
+}
+
+.value-box {
+    min-width: 70px;
+    text-align: center;
+    background: #eef;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.suggest-btn {
+    background: #28a745;
+}
+
+.suggest-btn:hover {
+    background: #1f7d34;
+}
+
+.download-btn {
+    background: green;
+}
+
+.download-btn:hover {
+    background: darkgreen;
+}
+
+.results {
+    margin-top: 20px;
+    background: #eef;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+.chart-container {
+    margin-top: 30px;
+}
+
+canvas {
+    margin-top: 20px;
+    max-height: 360px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>EcoPackAI Packaging Recommendation</h1>
+
+    <label>Material Type</label>
+    <select id="material_type">
+        <option>Bioplastic</option>
+        <option>Recycled Paper</option>
+        <option>Aluminum</option>
+        <option>Glass</option>
+        <option>Bamboo</option>
+        <option>Compostable Polymer</option>
+        <option>Molded Fiber</option>
+        <option>Recycled Plastic</option>
+    </select>
+
+    <h3>Auto-Suggest Best Value Presets</h3>
+    <div class="suggest-grid">
+        <button class="suggest-btn" onclick="applyPreset('eco')">🌱 Best Eco</button>
+        <button class="suggest-btn" onclick="applyPreset('balanced')">⚖️ Balanced</button>
+        <button class="suggest-btn" onclick="applyPreset('heavy')">🏗 Heavy Duty</button>
+    </div>
+
+    <label>Strength</label>
+    <div class="range-note">Range: 4 to 10</div>
+    <div class="slider-row">
+        <input type="range" id="strength" min="4" max="10" step="0.1" value="7" oninput="updateSliderValue('strength')">
+        <div class="value-box" id="strength_value">7.0</div>
+    </div>
+
+    <label>Weight Capacity</label>
+    <div class="range-note">Range: 3 to 60 kg</div>
+    <div class="slider-row">
+        <input type="range" id="weight" min="3" max="60" step="0.1" value="30" oninput="updateSliderValue('weight')">
+        <div class="value-box" id="weight_value">30.0</div>
+    </div>
+
+    <label>Biodegradability</label>
+    <div class="range-note">Range: 3 to 10</div>
+    <div class="slider-row">
+        <input type="range" id="biodeg" min="3" max="10" step="0.1" value="8" oninput="updateSliderValue('biodeg')">
+        <div class="value-box" id="biodeg_value">8.0</div>
+    </div>
+
+    <label>Recyclability</label>
+    <div class="range-note">Range: 30 to 100 %</div>
+    <div class="slider-row">
+        <input type="range" id="recycle" min="30" max="100" step="0.1" value="70" oninput="updateSliderValue('recycle')">
+        <div class="value-box" id="recycle_value">70.0</div>
+    </div>
+
+    <button onclick="getRecommendation()">🚀 Get Recommendation</button>
+
+    <div class="results">
+        <h3>Prediction Results</h3>
+        <p>Cost: <span id="cost">-</span></p>
+        <p>CO₂: <span id="co2">-</span></p>
+        <p>Eco Score: <span id="eco">-</span></p>
+    </div>
+
+    <h3>Top 5 Recommended Materials</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Cost</th>
+                <th>CO₂</th>
+                <th>Eco Score</th>
+            </tr>
+        </thead>
+        <tbody id="recommendations"></tbody>
+    </table>
+
+    <br>
+    <button class="download-btn" onclick="window.location.href='/download'">
+        📥 Download Excel Report
+    </button>
+
+    <div class="chart-container">
+        <h3>📊 Sustainability Dashboard</h3>
+        <canvas id="ecoChart"></canvas>
+        <canvas id="scatterChart"></canvas>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+let ecoChart, scatterChart, pieChart;
+
+function updateSliderValue(id) {
+    const value = parseFloat(document.getElementById(id).value).toFixed(1);
+    document.getElementById(id + "_value").innerText = value;
+}
+
+function applyPreset(type) {
+    if (type === "eco") {
+        document.getElementById("material_type").value = "Recycled Paper";
+        document.getElementById("strength").value = 6.0;
+        document.getElementById("weight").value = 18.0;
+        document.getElementById("biodeg").value = 9.5;
+        document.getElementById("recycle").value = 92.0;
+    } else if (type === "balanced") {
+        document.getElementById("material_type").value = "Bioplastic";
+        document.getElementById("strength").value = 7.0;
+        document.getElementById("weight").value = 30.0;
+        document.getElementById("biodeg").value = 8.0;
+        document.getElementById("recycle").value = 70.0;
+    } else if (type === "heavy") {
+        document.getElementById("material_type").value = "Aluminum";
+        document.getElementById("strength").value = 9.0;
+        document.getElementById("weight").value = 50.0;
+        document.getElementById("biodeg").value = 4.0;
+        document.getElementById("recycle").value = 80.0;
+    }
+
+    updateSliderValue("strength");
+    updateSliderValue("weight");
+    updateSliderValue("biodeg");
+    updateSliderValue("recycle");
+}
+
+async function getRecommendation() {
+    const material_type = document.getElementById("material_type").value;
+    const strength = parseFloat(document.getElementById("strength").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const biodeg = parseFloat(document.getElementById("biodeg").value);
+    const recycle = parseFloat(document.getElementById("recycle").value);
+
+    if (isNaN(strength) || isNaN(weight) || isNaN(biodeg) || isNaN(recycle)) {
+        alert("Please fill all values correctly.");
+        return;
+    }
+
+    const response = await fetch("/recommend", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            material_type: material_type,
+            strength: strength,
+            weight: weight,
+            biodegradability: biodeg,
+            recyclability: recycle
+        })
+    });
+
+    const data = await response.json();
+
+    document.getElementById("cost").innerText = data.user_prediction.predicted_cost;
+    document.getElementById("co2").innerText = data.user_prediction.predicted_co2;
+    document.getElementById("eco").innerText = data.user_prediction.eco_score;
+
+    let html = "";
+    data.top_recommendations.forEach(item => {
+        html += `
+        <tr>
+            <td>${item.material_type}</td>
+            <td>${item.predicted_cost.toFixed(2)}</td>
+            <td>${item.predicted_co2.toFixed(2)}</td>
+            <td>${item.eco_score.toFixed(3)}</td>
+        </tr>`;
+    });
+    document.getElementById("recommendations").innerHTML = html;
+
+    renderCharts(data.top_recommendations);
+}
+
+function renderCharts(data) {
+    const labels = data.map(d => d.material_type);
+    const eco = data.map(d => d.eco_score);
+    const cost = data.map(d => d.predicted_cost);
+    const co2 = data.map(d => d.predicted_co2);
+
+    if (ecoChart) ecoChart.destroy();
+    if (scatterChart) scatterChart.destroy();
+    if (pieChart) pieChart.destroy();
+
+    ecoChart = new Chart(document.getElementById("ecoChart"), {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Eco Score",
+                data: eco
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: Math.max(0, Math.min(...eco) - 0.02)
+                }
+            }
+        }
+    });
+
+    scatterChart = new Chart(document.getElementById("scatterChart"), {
+        type: "scatter",
+        data: {
+            datasets: [{
+                label: "Cost vs CO₂",
+                data: data.map(d => ({
+                    x: d.predicted_cost,
+                    y: d.predicted_co2
+                }))
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: { display: true, text: "Predicted Cost" }
+                },
+                y: {
+                    title: { display: true, text: "Predicted CO₂" }
+                }
+            }
+        }
+    });
+
+    const counts = {};
+    data.forEach(d => {
+        counts[d.material_type] = (counts[d.material_type] || 0) + 1;
+    });
+
+    pieChart = new Chart(document.getElementById("pieChart"), {
+        type: "pie",
+        data: {
+            labels: Object.keys(counts),
+            datasets: [{
+                data: Object.values(counts)
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+}
+
+// initialize displayed values on first load
+updateSliderValue("strength");
+updateSliderValue("weight");
+updateSliderValue("biodeg");
+updateSliderValue("recycle");
+</script>
+
+</body>
+</html>

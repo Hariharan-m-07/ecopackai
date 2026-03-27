@@ -1,0 +1,101 @@
+product_category,weight_kg,fragility_level,shipping_distance_km
+Electronics,12.56,1,657.99
+Food & Beverages,6.71,5,1576.12
+Medical Devices,12.86,2,1588.27
+Medical Devices,12.34,3,1999.14
+Books & Stationery,8.59,3,1836.95
+Pharmaceuticals,2.23,2,1360.68
+Electronics,14.54,3,780.86
+Automotive Parts,2.63,3,1116.13
+Clothing & Apparel,17.1,2,1629.98
+Books & Stationery,16.05,5,1856.36
+Automotive Parts,0.15,1,1450.6
+Books & Stationery,5.21,4,144.48
+Personal Care,5.44,3,437.61
+Electronics,13.41,2,280.19
+Toys,14.01,2,798.26
+Cosmetics,10.48,5,99.91
+Fresh Produce,15.64,4,1506.75
+Personal Care,19.98,3,490.5
+Glassware,5.32,1,485.7
+Automotive Parts,16.01,5,1729.14
+Furniture,0.55,5,478.93
+Fresh Produce,4.36,3,1912.7
+Food & Beverages,5.43,1,225.81
+Industrial Equipment,0.32,5,426.96
+Pharmaceuticals,2.79,5,712.38
+Electronics,8.98,1,968.22
+Cosmetics,18.83,2,1043.11
+Electronics,12.6,4,516.59
+Glassware,6.27,2,1758.47
+Food & Beverages,11.62,3,1174.78
+Pharmaceuticals,15.7,2,1205.91
+Glassware,19.94,1,1935.04
+Food & Beverages,0.8,4,549.91
+Electronics,7.25,2,662.15
+Fresh Produce,2.1,3,1871.68
+Glassware,13.79,3,1996.45
+Fresh Produce,3.7,2,1044.78
+Cosmetics,8.57,1,1732.78
+Home Appliances,18.39,4,662.91
+Books & Stationery,6.78,3,1713.06
+Books & Stationery,12.06,5,1991.06
+Fresh Produce,5.18,1,548.18
+Medical Devices,5.61,2,1959.8
+Medical Devices,13.69,1,1309.23
+Personal Care,10.32,1,607.44
+Medical Devices,10.98,2,1623.48
+Furniture,7.62,2,1350.69
+Toys,0.7,1,1202.54
+Home Appliances,12.11,2,1018.78
+Toys,6.89,4,793.28
+Industrial Equipment,4.81,2,1402.93
+Industrial Equipment,15.02,4,1654.91
+Medical Devices,3.1,4,65.61
+Glassware,18.0,2,1393.43
+Cosmetics,13.87,1,252.8
+Toys,13.83,2,1770.7
+Automotive Parts,2.89,4,1487.71
+Cosmetics,16.03,5,1240.78
+Electronics,6.11,2,865.28
+Toys,2.38,1,1168.17
+Clothing & Apparel,3.19,1,662.14
+Clothing & Apparel,18.21,1,308.59
+Glassware,13.07,5,1776.98
+Electronics,19.11,3,1097.93
+Automotive Parts,6.31,3,109.4
+Electronics,0.93,1,628.16
+Cosmetics,13.05,2,1698.04
+Home Appliances,9.28,3,1845.51
+Fresh Produce,16.27,3,1678.51
+Fresh Produce,9.5,1,1936.01
+Automotive Parts,0.45,4,1809.67
+Medical Devices,13.69,4,1889.76
+Cosmetics,1.83,4,1364.27
+Cosmetics,14.08,5,293.04
+Pharmaceuticals,12.35,4,1397.61
+Personal Care,9.49,3,101.21
+Pharmaceuticals,8.93,1,1324.77
+Home Appliances,17.16,5,893.02
+Cosmetics,0.84,5,1703.25
+Toys,2.21,5,1026.35
+Electronics,11.76,3,372.66
+Automotive Parts,1.37,2,718.29
+Food & Beverages,3.0,3,1322.46
+Food & Beverages,2.6,1,581.49
+Toys,10.6,5,1578.95
+Furniture,13.11,1,293.46
+Electronics,10.79,4,1886.48
+Cosmetics,17.1,5,676.5
+Home Appliances,12.89,5,1316.14
+Automotive Parts,17.81,4,1190.3
+Cosmetics,10.48,4,796.04
+Electronics,4.22,2,394.75
+Food & Beverages,14.41,3,1606.08
+Books & Stationery,19.18,2,1660.26
+Clothing & Apparel,18.48,4,1021.07
+Toys,11.28,1,1910.37
+Cosmetics,2.93,5,203.08
+Pharmaceuticals,2.29,1,774.96
+Books & Stationery,19.0,1,346.32
+Industrial Equipment,8.43,2,1608.01

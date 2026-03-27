@@ -1,0 +1,51 @@
+id,material_name,material_type,strength_rating,weight_capacity_kg,biodegradability_score,co2_emission_score,recyclability_percent,cost_per_unit,created_at
+1,Recycled Paper Material 1,Recycled Paper,9.15,25.55,,4.68,32.31,4.48,2026-02-15 21:29:14.914260
+2,Molded Fiber Material 2,Molded Fiber,4.29,53.35,3.54,6.47,94.18,,2026-02-15 21:29:14.914260
+3,Bioplastic Material 3,Bioplastic,6.09,5.31,4.51,3.5,30.02,,2026-02-15 21:29:14.914260
+4,Compostable Polymer Material 4,Compostable Polymer,5.24,46.8,5.93,2.03,51.2,1.42,2026-02-15 21:29:14.914260
+5,Recycled Paper Material 5,Recycled Paper,5.79,,5.71,2.81,95.13,3.36,2026-02-15 21:29:14.914260
+6,Molded Fiber Material 6,Molded Fiber,6.88,50.23,9.66,6.44,70.02,2.79,2026-02-15 21:29:14.914260
+7,Bamboo Material 7,Bamboo,4.59,28.18,4.77,3.78,,0.43,2026-02-15 21:29:14.914260
+8,Compostable Polymer Material 8,Compostable Polymer,7.42,36.6,6.26,8.17,54.3,2.54,2026-02-15 21:29:14.914260
+9,Recycled Paper Material 9,Recycled Paper,7.61,33.04,6.78,7.78,32.14,0.59,2026-02-15 21:29:14.914260
+10,Glass Material 10,Glass,8.9,26.89,3.27,6.13,95.76,4.33,2026-02-15 21:29:14.914260
+11,Recycled Paper Material 11,Recycled Paper,9.8,22.01,9.0,6.1,46.73,2.31,2026-02-15 21:29:14.914260
+12,Recycled Paper Material 12,Recycled Paper,,31.38,8.93,6.38,86.26,5.38,2026-02-15 21:29:14.914260
+13,Glass Material 13,Glass,6.63,29.3,6.79,1.66,79.7,0.78,2026-02-15 21:29:14.914260
+14,Bioplastic Material 14,Bioplastic,4.2,16.22,9.78,8.02,54.46,1.64,2026-02-15 21:29:14.914260
+15,Recycled Paper Material 15,Recycled Paper,7.07,15.65,3.6,6.57,75.6,3.38,2026-02-15 21:29:14.914260
+16,Bamboo Material 16,Bamboo,5.91,11.7,4.26,8.87,90.26,2.93,2026-02-15 21:29:14.914260
+17,Bioplastic Material 17,Bioplastic,9.69,,8.69,5.59,98.72,1.63,2026-02-15 21:29:14.914260
+18,Molded Fiber Material 18,Molded Fiber,5.1,35.06,9.51,6.2,94.08,4.47,2026-02-15 21:29:14.914260
+19,Bioplastic Material 19,Bioplastic,5.8,39.47,4.66,4.14,99.38,1.8,2026-02-15 21:29:14.914260
+20,Molded Fiber Material 20,Molded Fiber,7.51,17.44,4.82,3.08,49.83,1.87,2026-02-15 21:29:14.914260
+21,Molded Fiber Material 21,Molded Fiber,4.43,41.36,6.25,6.97,,4.64,2026-02-15 21:29:14.914260
+22,Molded Fiber Material 22,Molded Fiber,7.38,15.52,5.79,6.89,,0.8,2026-02-15 21:29:14.914260
+23,Bioplastic Material 23,Bioplastic,6.18,53.6,5.63,4.2,68.04,2.22,2026-02-15 21:29:14.914260
+24,Glass Material 24,Glass,7.99,46.17,6.6,8.4,93.45,0.47,2026-02-15 21:29:14.914260
+25,Recycled Paper Material 25,Recycled Paper,9.2,57.25,5.11,2.4,40.77,1.0,2026-02-15 21:29:14.914260
+26,Bamboo Material 26,Bamboo,8.84,56.72,5.69,4.58,75.19,1.98,2026-02-15 21:29:14.914260
+27,Recycled Paper Material 27,Recycled Paper,6.88,22.8,3.63,1.04,49.12,3.86,2026-02-15 21:29:14.914260
+28,Molded Fiber Material 28,Molded Fiber,9.12,12.89,8.39,,65.0,,2026-02-15 21:29:14.914260
+29,Recycled Paper Material 29,Recycled Paper,6.5,38.58,6.16,3.64,37.81,0.74,2026-02-15 21:29:14.914260
+30,Molded Fiber Material 30,Molded Fiber,6.45,39.39,6.1,1.42,71.53,5.76,2026-02-15 21:29:14.914260
+31,Compostable Polymer Material 31,Compostable Polymer,5.73,52.62,7.32,2.1,84.84,5.57,2026-02-15 21:29:14.914260
+32,Recycled Paper Material 32,Recycled Paper,5.69,47.56,3.75,1.51,73.38,2.97,2026-02-15 21:29:14.914260
+33,Recycled Paper Material 33,Recycled Paper,6.05,4.73,5.4,,51.06,4.22,2026-02-15 21:29:14.914260
+34,Molded Fiber Material 34,Molded Fiber,7.85,,,5.22,78.53,1.65,2026-02-15 21:29:14.914260
+35,Recycled Paper Material 35,Recycled Paper,,8.96,4.0,8.61,92.54,1.67,2026-02-15 21:29:14.914260
+36,Compostable Polymer Material 36,Compostable Polymer,6.95,10.62,9.11,3.59,75.71,,2026-02-15 21:29:14.914260
+37,Recycled Plastic Material 37,Recycled Plastic,8.92,33.38,6.57,1.49,41.79,1.8,2026-02-15 21:29:14.914260
+38,Glass Material 38,Glass,5.7,7.87,6.11,8.35,62.26,,2026-02-15 21:29:14.914260
+39,Compostable Polymer Material 39,Compostable Polymer,8.1,46.0,9.57,5.02,99.52,4.62,2026-02-15 21:29:14.914260
+40,Recycled Paper Material 40,Recycled Paper,8.71,31.2,4.79,7.58,60.1,1.99,2026-02-15 21:29:14.914260
+41,Bioplastic Material 41,Bioplastic,,10.35,8.95,,,4.28,2026-02-15 21:29:14.914260
+42,Recycled Paper Material 42,Recycled Paper,7.37,30.84,8.83,6.94,77.08,1.02,2026-02-15 21:29:14.914260
+43,Recycled Paper Material 43,Recycled Paper,9.7,,9.43,,80.41,1.8599999999999999,2026-02-15 21:29:14.914260
+44,Recycled Plastic Material 44,Recycled Plastic,8.1,45.83,7.2,,50.74,4.87,2026-02-15 21:29:14.914260
+45,Aluminum Material 45,Aluminum,8.09,,7.52,7.7,44.31,0.99,2026-02-15 21:29:14.914260
+46,Glass Material 46,Glass,4.63,15.73,6.22,7.9,77.56,0.79,2026-02-15 21:29:14.914260
+47,Compostable Polymer Material 47,Compostable Polymer,5.32,22.52,4.06,6.95,70.26,,2026-02-15 21:29:14.914260
+48,Recycled Paper Material 48,Recycled Paper,4.56,51.61,3.77,5.72,77.14,1.07,2026-02-15 21:29:14.914260
+49,Recycled Paper Material 49,Recycled Paper,6.31,10.49,6.93,4.33,51.79,3.22,2026-02-15 21:29:14.914260
+50,Bioplastic Material 50,Bioplastic,5.98,38.7,5.87,1.64,40.33,4.54,2026-02-15 21:29:14.914260

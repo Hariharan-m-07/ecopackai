@@ -11,43 +11,36 @@ body {
     background: #f4f6f8;
     padding: 30px;
 }
-
 h1, h3 {
     text-align: center;
     color: #222;
 }
-
 .container {
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
-
 label {
     font-weight: bold;
     display: block;
     margin-top: 14px;
 }
-
 .range-note {
     font-size: 13px;
     color: #555;
     margin-top: 4px;
 }
-
 .slider-row {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .slider-row input[type="range"] {
     flex: 1;
 }
-
 .value-box {
     min-width: 70px;
     text-align: center;
@@ -56,13 +49,11 @@ label {
     border-radius: 6px;
     font-weight: bold;
 }
-
 select, button {
     width: 100%;
     padding: 10px;
     margin-top: 8px;
 }
-
 button {
     background: #007bff;
     color: white;
@@ -71,65 +62,52 @@ button {
     border-radius: 6px;
     font-size: 15px;
 }
-
 button:hover {
     background: #0056b3;
 }
-
 .suggest-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 14px;
 }
-
 .suggest-btn {
     background: #28a745;
 }
-
 .suggest-btn:hover {
     background: #1f7d34;
 }
-
 .download-btn {
     background: green;
 }
-
 .download-btn:hover {
     background: darkgreen;
 }
-
 .results {
     margin-top: 20px;
     background: #eef;
     padding: 15px;
     border-radius: 8px;
 }
-
 table {
     width: 100%;
     margin-top: 15px;
     border-collapse: collapse;
 }
-
 table, th, td {
     border: 1px solid #ccc;
 }
-
 th {
     background: #007bff;
     color: white;
 }
-
 th, td {
     padding: 8px;
     text-align: center;
 }
-
 .chart-container {
     margin-top: 30px;
 }
-
 canvas {
     margin-top: 20px;
     max-height: 360px;
@@ -138,7 +116,6 @@ canvas {
 </head>
 
 <body>
-
 <div class="container">
 
     <h1>EcoPackAI Packaging Recommendation</h1>
@@ -147,11 +124,11 @@ canvas {
     <select id="material_type">
         <option>Bioplastic</option>
         <option>Recycled Paper</option>
-        <option>Aluminum</option>
-        <option>Glass</option>
-        <option>Bamboo</option>
-        <option>Compostable Polymer</option>
         <option>Molded Fiber</option>
+        <option>Compostable Polymer</option>
+        <option>Glass</option>
+        <option>Aluminum</option>
+        <option>Bamboo</option>
         <option>Recycled Plastic</option>
     </select>
 
@@ -285,6 +262,11 @@ async function getRecommendation() {
         })
     });
 
+    if (!response.ok) {
+        alert("Prediction failed. Please try again.");
+        return;
+    }
+
     const data = await response.json();
 
     document.getElementById("cost").innerText = data.user_prediction.predicted_cost;
@@ -309,8 +291,6 @@ async function getRecommendation() {
 function renderCharts(data) {
     const labels = data.map(d => d.material_type);
     const eco = data.map(d => d.eco_score);
-    const cost = data.map(d => d.predicted_cost);
-    const co2 = data.map(d => d.predicted_co2);
 
     if (ecoChart) ecoChart.destroy();
     if (scatterChart) scatterChart.destroy();
@@ -379,12 +359,10 @@ function renderCharts(data) {
     });
 }
 
-// initialize displayed values on first load
 updateSliderValue("strength");
 updateSliderValue("weight");
 updateSliderValue("biodeg");
 updateSliderValue("recycle");
 </script>
-
 </body>
 </html>
